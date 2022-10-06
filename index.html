@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Intro section with dropdown navigation</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center;}
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+
+  <!-- Css  -->
+  <link rel="stylesheet" href="css/styles.css">
+
+</head>
+<body>
+  <nav>
+      <img class="logo" src="images/logo.svg" alt="">
+      <input type="checkbox" id="click">
+      <label for="click" class="menu-btn">
+          <i class="fas fa-bars"></i>
+      </label>
+    <ul class="menu">
+      <li class="item">
+        <a href="#" class="dropdownbtn" onclick="showSubmenu('dropdown-features')">Features<img class="dropdown-features" src="images/icon-arrow-down.svg" alt=""></a>
+        <ul class="submenu" id="dropdown-features">
+          <li class="submenu-item"> <img src="images/icon-todo.svg" alt=""> Todo List</li>
+          <li class="submenu-item"> <img src="images/icon-calendar.svg" alt=""> Calendar</li>
+          <li class="submenu-item"> <img src="images/icon-reminders.svg" alt=""> Reminders</li>
+          <li class="submenu-item"> <img src="images/icon-planning.svg" alt=""> Planing</li>
+        </ul>
+      </li>
+      <li class="item">
+        <a href="#" class="dropdownbtn" onclick="showSubmenu('dropdown-company')">Company<img class="dropdown-company" src="images/icon-arrow-down.svg" alt=""></a>
+        <ul class="submenu" id="dropdown-company">
+          <li class="submenu-item">History</li>
+          <li class="submenu-item">Our Team</li>
+          <li class="submenu-item">Blog</li>
+        </ul>
+      </li>
+      <li class="item">Careers</li>
+      <li class="item">About</li>
+      <li class="item item-login">Login</li>
+      <li class="item"><button class="btn btn-register">Register</button></li>
+    </ul>
+  </nav>
+
+  <div class="main">
+    <div class="main-left">
+      <h1 class="title">Make</h1>
+      <h1 class="title">remote work</h1>
+      <p class="description">Get your team in sync, no matter your location. Streamline processes, 
+        create team rituals, and watch productivity soar.</p>
+        <button class="btn btn-learn">Learn more</button>
+      <ul>
+        <li><img src="images/client-databiz.svg" alt=""> </li>
+        <li><img src="images/client-audiophile.svg" alt=""></li>
+        <li><img src="images/client-meet.svg" alt=""></li>
+        <li><img src="images/client-maker.svg" alt=""></li>
+      </ul>
+    </div>
+    <div class="main-right">
+      <picture>
+        <source srcset="images/image-hero-mobile.png" media="(max-width: 575px)"/>
+        <img src="images/image-hero-desktop.png" alt=""/>
+      </picture>
+    </div>
+  </div>
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Jordi Llobet Palau</a>.
+  </div>
+  
+  <!-- Js  -->
+  <script src="js/main.js"></script>
+</body>
+</html>
