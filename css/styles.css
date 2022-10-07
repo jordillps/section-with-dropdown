@@ -46,7 +46,7 @@ dd {
 }
 
 /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
-ul,ol {
+ul,ol, li{
   list-style: none;
   padding: 0;
   margin: 0;
@@ -141,117 +141,186 @@ ul li{
 }
 
 /* Nav Bar */
-nav{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1em 3em;
+.navbar {
+  display:flex;
+  position: relative;
+  align-items: center;
+  justify-content: space-between;
 }
 
-nav .menu{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 4em;
-    margin-right: auto;
-    margin-left: 5em;
-}
-
-nav .menu .item{
-    position: relative;
-    cursor: pointer;
+nav .main-nav .item{
+  position: relative;
+  cursor: pointer;
+  text-decoration: none;
 }
 
 
-.submenu {
-    display: none;
-    position: absolute;
-    background-color: var(--clr--almostWhite);
-    margin-top: 1em;
-    min-width: 170px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    padding: 0.5em 1em;
-    border-radius: 0.5em;
+.submenu{
+  display: none;
+  position: absolute;
+  background-color: var(--clr--almostWhite);
+  margin-top: 1em;
+  min-width: 170px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 0.5em 1em;
+  border-radius: 0.5em;
 }
 
-.submenu.show{
+.submenu.show {
   display: block;
 }
 
-nav .menu .item img{
-    display: inline-block;
-    margin-left: 0.3em;
-}
-  
-nav .menu .item img.show {
-   transform: rotate(180deg);
-   transition: transform .35s ease-in-out;
+.submenu .submenu-item img{
+  display: inline-block;
 }
 
-nav .menu.menu-login .item-register{
-    border: 1px solid --clr--almostBlack;
-    border-radius: 4px;
+.main-nav .item a img,
+.navbar__menu a img{
+  display: inline-block;
+  margin-left: 0.5em;
 }
 
-nav input[type="checkbox"]{
-    display: none;
+.main-nav .item a img.show {
+  transform: rotate(180deg);
+  transition: transform .35s ease-in-out;
 }
 
-nav .menu-btn i{
-    font-size: 30px;
-    cursor: pointer;
-    display: none;
+
+.main-nav .item ul{
+  display: none;
+} 
+
+.navbar-toggle {
+  cursor: pointer;
+  margin-right: 0.5em;
 }
 
-@media (max-width: 575px) {
-    
-    nav .menu-btn i{
-      display: block;
-    }
+.navbar-toggle > span {
+display: block;
+cursor: pointer;
+width: 2rem;
+height: 2px;
+background-color: #2d314d;
+-webkit-transition: all 0.5s ease-in-out;
+transition: all 0.5s ease-in-out;
+/* -webkit-transform-origin: 0 0; */
+        transform-origin: 4px 1.2px;
+}
 
-    #click:checked ~ .menu-btn i:before{
-      content: "\f00d";
-    }
 
-    nav .menu{
-      position: fixed;
-      right:-100%;
-      background: var(--clr--almostWhite);
-      height: 100vh;
-      width: 100%;
-      display: block;
-      transition: all 0.3s ease;
-      padding: 2em;
-      font-size: 1.2em;
-    }
+.navbar-toggle > span:not(:last-child) {
+margin-bottom: 6px;
+}
 
-    nav .menu li{
-      margin-block: 1em;
-    }
+.navbar-toggle.open > span:first-child {
+-webkit-transform: rotateZ(45deg);
+        transform: rotateZ(45deg);
+}
 
-    nav .menu{
-      top: 62px;
-      height: auto;
-    }
+.navbar-toggle.open > span:nth-child(2) {
+opacity: 0;
+}
 
-    #click:checked ~ ul.menu{
-      right: 0;
-    }
+.navbar-toggle.open > span:last-child {
+-webkit-transform: rotateZ(-45deg);
+        transform: rotateZ(-45deg);
+}
 
-    .submenu {
+@media screen and (min-width: 62rem) {
+  .navbar {
+      display: flex;
+      align-items: center;
+      padding: 1em 5em;
+  }
+
+  .navbar .logo{
+    flex-basis: 20%;
+  }
+
+  .main-nav {
+      display: flex;
+      align-items: center;
+      gap: 5em;
+      margin-right: auto;
+      margin-left: 4em;
+  }
+
+  .login-nav {
+    display: flex;
+    align-items: center;
+    gap:4em;
+  }
+
+  .navbar-toggle {
       display: none;
-      position: inherit;
-      padding: 0.5em 2em;
-      box-shadow: none;
-      margin-top: 0;
-    }
+  }
 
-    .btn-register{
-      width: 100%;
-    }
-
-    
+  .navbar__menu{
+    display:none;
+  }
+  
 }
+
+@media screen and (max-width: 62rem) {
+  .navbar {
+    padding: 1em;
+  }
+
+  .navbar__menu {
+    position: fixed;
+    right:0;
+    background: var(--clr--almostWhite);
+    height: 100vh;
+    width: 70%;
+    display: block;
+    transition: all 0.3s ease;
+    padding: 2em;
+    font-size: 1.2em;
+  }
+
+  
+  .navbar__menu a {
+    display: block;
+    text-decoration: none;
+    margin-top: 2em;
+  }
+
+  .hidden__menu {
+    right:-100%;
+  }
+
+  .main-nav, .login-nav{
+    display:none;
+  }
+
+  .btn-register{
+    width: 100%;
+  }
+
+  .submenu {
+    display: none;
+    position: inherit;
+    padding: 0.5em 2em;
+    box-shadow: none;
+    margin-top: 0;
+  }
+
+
+  .submenu.show{
+    display: block;
+  }
+
+  .navbar__menu a img.show {
+    transform: rotate(180deg);
+    transition: transform .35s ease-in-out;
+  }
+
+  .navbar__menu .item-login{
+    text-align: center;
+  }
+
+}
+
 
 
 /* End Nav Bar */
